@@ -1,6 +1,9 @@
 package com.project.test.accenture.testBasic_v1.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,37 +24,37 @@ public class User {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "ssn")
+    @Column(nullable = false)
+    @Size(min = 16, max = 16)
     private String ssn;
 
-    @Column(name = "firts_name")
+    @Column(nullable = false)
+    @Size(min = 3, max = 100)
     private String firts_name;
-
-    @Column(name = "middle_name")
     private String middle_name;
 
-    @Column(name = "family_name")
+    @Column(nullable = false)
+    @Size(min = 3, max = 100)
     private String family_name;
 
-    @Column(name = "birth_date")
     private Date birth_date;
 
-    @Column(name = "created_time")
+    @Column(nullable = false)
     private LocalDateTime created_time;
 
-    @Column(name = "updated_time")
+    @Column(nullable = false)
     private LocalDateTime updated_time;
 
-    @Column(name = "created_by")
+    @Column(nullable = false)
+    @Size(max = 100)
     private String created_by;
 
-    @Column(name = "updated_by")
+    @Column(nullable = false)
+    @Size(max = 100)
     private String updated_by;
 
-    @Column(name = "is_active")
     private Boolean is_active;
 
-    @Column(name = "deleted_time")
     private LocalDateTime deleted_time;
 
 }

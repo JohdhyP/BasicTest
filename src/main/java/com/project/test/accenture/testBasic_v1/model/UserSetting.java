@@ -2,6 +2,7 @@ package com.project.test.accenture.testBasic_v1.model;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,10 +21,11 @@ public class UserSetting {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "keys")
+    @Size(min = 3, max = 100)
+    @Column(name = "keys", nullable = false)
     private String key;
-
-    @Column(name = "value1")
+    @Size(min = 3, max = 100)
+    @Column(name = "value1", nullable = false)
     private String value;
 
     @Column(name = "user_id")
